@@ -31,22 +31,27 @@ public class RuleService {
 
     // Parse the rule string into an Abstract Syntax Tree (AST)
     private Node parseRuleStringToAST(String ruleString) {
-        // TODO: Implement a real parser. For now, we return a mock AST for simplicity.
-        Node root = new Node();
-        root.setType("operator");
-        root.setValue("AND");
+        // Remove any surrounding parentheses and trim
+        ruleString = ruleString.trim();
+        if (ruleString.startsWith("(") && ruleString.endsWith(")")) {
+            ruleString = ruleString.substring(1, ruleString.length() - 1).trim();
+        }
 
-        Node left = new Node();
-        left.setType("operand");
-        left.setValue("age > 30");
-
-        Node right = new Node();
-        right.setType("operand");
-        right.setValue("salary > 50000");
-
-        root.setLeft(left);
-        root.setRight(right);
-        return root;
+        // Split on AND/OR operators
+        if (ruleString.contains(" AND ")) {
+            String[] parts = ruleString.split(" AND ");
+            Node left = parseRuleStringToAST(parts[0]);
+            Node right = parseRuleStringToAST(parts[1]);
+            return new Node("operator", left, right, "AND");
+        } else if (ruleString.contains(" OR ")) {
+            String[] parts = ruleString.split(" OR ");
+            Node left = parseRuleStringToAST(parts[0]);
+            Node right = parseRuleStringToAST(parts[1]);
+            return new Node("operator", left, right, "OR");
+        } else {
+            // This is a leaf node (operand)
+            return new Node("operand", null, null, ruleString);
+        }
     }
 
     // Evaluate a rule using the provided user data
@@ -144,7 +149,7 @@ public class RuleService {
         Rule rule = ruleOptional.get();
         Node newRoot = parseRuleStringToAST(newExpression); // Parse the new expression
         rule.setRootNode(newRoot);
-        return ruleRepository.save(rule); // Save the modified rule
+        return ruleRepository.save(rule);
     }
 
     // Get all rules from the repository
