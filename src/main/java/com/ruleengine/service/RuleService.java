@@ -31,28 +31,39 @@ public class RuleService {
 
     // Parse the rule string into an Abstract Syntax Tree (AST)
     private Node parseRuleStringToAST(String ruleString) {
-        // Remove any surrounding parentheses and trim
         ruleString = ruleString.trim();
+
+        // Ensure string starts and ends correctly for complex expressions
         if (ruleString.startsWith("(") && ruleString.endsWith(")")) {
             ruleString = ruleString.substring(1, ruleString.length() - 1).trim();
         }
 
-        // Split on AND/OR operators
+        // Validate and split on AND/OR operators
         if (ruleString.contains(" AND ")) {
             String[] parts = ruleString.split(" AND ");
+            if (parts.length != 2) {
+                throw new CustomException("Invalid AND expression: " + ruleString);
+            }
             Node left = parseRuleStringToAST(parts[0]);
             Node right = parseRuleStringToAST(parts[1]);
             return new Node("operator", left, right, "AND");
         } else if (ruleString.contains(" OR ")) {
             String[] parts = ruleString.split(" OR ");
+            if (parts.length != 2) {
+                throw new CustomException("Invalid OR expression: " + ruleString);
+            }
             Node left = parseRuleStringToAST(parts[0]);
             Node right = parseRuleStringToAST(parts[1]);
             return new Node("operator", left, right, "OR");
         } else {
-            // This is a leaf node (operand)
+            // Check if it's a valid operand format like "age > 30"
+            if (!ruleString.matches("^[a-zA-Z]+\\s[><=]\\s\\d+$")) {
+                throw new CustomException("Invalid operand: " + ruleString);
+            }
             return new Node("operand", null, null, ruleString);
         }
     }
+
 
     // Evaluate a rule using the provided user data
     public boolean evaluateRule(Long ruleId, Map<String, Object> userData) {
