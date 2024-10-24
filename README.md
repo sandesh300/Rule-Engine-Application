@@ -46,20 +46,21 @@ rule-engine/
 │   │   ├── main/
 │   │   │   ├── java/com/ruleengine/
 │   │   │   │   ├── controller/
-│   │   │   │           ├── RuleController.java
+│   │   │   │   │   ├── RuleController.java
 │   │   │   │   ├── service/
-│   │   │   │          ├── RuleServices.java
+│   │   │   │   │   ├── RuleServices.java
 │   │   │   │   ├── model/
-│   │   │   │           ├── Node.java
-│   │   │   │           ├── Rule.java
+│   │   │   │   │   ├── Node.java
+│   │   │   │   │   ├── Rule.java
 │   │   │   │   ├── repository/
-│   │   │   │           ├── RuleRepository.java
+│   │   │   │   │   ├── RuleRepository.java
 │   │   │   │   └── exception/
-│   │   │   │           ├── GlobalHandlerException.java
-│   │   │   │           ├── CustomException.java
+│   │   │   │       ├── GlobalHandlerException.java
+│   │   │   │       ├── CustomException.java
 │   │   │   └── resources/
-│   │   │           ├── application.properties
+│   │   │        ├── application.properties
 │   │   └── test/
+│   │       ├──RuleServiceTest.java
 │   └── pom.xml
 ├── frontend/
 │   ├── src/
