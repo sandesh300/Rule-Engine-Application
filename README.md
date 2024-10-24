@@ -3,6 +3,30 @@
 
 A rule engine application that uses Abstract Syntax Tree (AST) to create, evaluate, and manage complex business rules. The system supports dynamic rule creation, combination, and modification with a focus on user attribute evaluation.
 
+---
+
+### Deployment
+
+The application has been deployed with the following technologies and services:
+
+1. **Backend (Spring Boot):**
+   - Deployed to **Docker Hub** as a containerized application.
+   - [Docker Hub Repository URL](sandesh030/rule-engine-deployment)
+
+2. **Backend Docker Image:**
+   - Docker image deployed to **Render.com** for hosting the backend services.
+   - [Render Deployment URL](https://rule-engine-deployment-latest.onrender.com)
+
+3. **Database:**
+   - PostgreSQL database deployed on **Neon Postgres Cloud Database** for efficient and scalable data management.
+   - [Neon Postgres Cloud URL](https://console.neon.tech/app/projects/solitary-forest-16973334/branches/br-spring-butterfly-a8e2xdam/tables)
+
+4. **Frontend:**
+   - React application deployed to **Netlify** for seamless frontend hosting.
+   - [Frontend Deployment URL](https://rule-engine-bd7555.netlify.app/)
+
+---
+
 ## 🚀 Features
 
 - Create complex rules using logical operators (AND/OR)
