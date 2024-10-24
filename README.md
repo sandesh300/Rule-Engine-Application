@@ -1,6 +1,7 @@
+
 # Rule Engine with Abstract Syntax Tree
 
-A  rule engine application that uses Abstract Syntax Tree (AST) to create, evaluate, and manage complex business rules. The system supports dynamic rule creation, combination, and modification with a focus on user attribute evaluation.
+A rule engine application that uses Abstract Syntax Tree (AST) to create, evaluate, and manage complex business rules. The system supports dynamic rule creation, combination, and modification with a focus on user attribute evaluation.
 
 ## 🚀 Features
 
@@ -60,12 +61,12 @@ rule-engine/
 │   │   │   └── resources/
 │   │   │        ├── application.properties
 │   │   └── test/
-│   │       ├──RuleServiceTest.java
+│   │       ├── RuleServiceTest.java
 │   └── pom.xml
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │       ├── CombineRule.js
+│   │         ├── CombineRule.js
 │   │         ├── CreateRule.js
 │   │         ├── EvaluateRule.js
 │   │         ├── Home.js
@@ -137,8 +138,9 @@ DELETE /api/rules/delete          - Delete a rule
 POST   /api/rules/evaluate        - Evaluate data against a rule
 POST   /api/rules/combine         - Combine multiple rules
 ```
-### Backend REST APIs Documentation - 
 
+### Backend REST APIs Documentation Link
+[Backend REST APIs Documentation](https://walnut-wrist-9da.notion.site/Rule-Engine-with-AST-129a272bc3e580c0ac0cfc7f01e5c221)
 
 ## 🎨 Design Choices
 
@@ -178,7 +180,8 @@ CREATE TABLE rules (
 - Frontend component tests
 - End-to-end testing for critical flows
 
-### Test Cases Documnentation - 
+### Test Cases Documentation Link
+[Test Cases Documentation](https://walnut-wrist-9da.notion.site/Rule-Engine-using-AST-Test-Cases-129a272bc3e580a082e9c45cc99ccc51)
 
 ### Running Tests
 
@@ -216,7 +219,9 @@ npm test
     "timestamp": "2024-10-24T10:00:00Z"
 }
 ```
-### Error Handling and Validations -
+
+### Validation Error Handling Link
+[Validation Error Handling](https://walnut-wrist-9da.notion.site/Rule-Engine-using-AST-Validation-Error-Handling-129a272bc3e580bb9a1acd849dee8eb7)
 
 ## 📦 Dependencies
 
@@ -239,23 +244,23 @@ npm test
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
     </dependency>
-<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>5.11.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.10.3</version> <!-- Or any latest stable version -->
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>5.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.10.3</version> <!-- Or any latest stable version -->
+        <scope>test</scope>
+    </dependency>
 </dependencies>
 ```
 
@@ -272,3 +277,6 @@ npm test
     }
 }
 ```
+
+---
+
